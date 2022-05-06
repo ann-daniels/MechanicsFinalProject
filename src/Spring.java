@@ -6,12 +6,12 @@ public class Spring
 
     public Spring()
     {
-        k = 1;
+        setK(1.0);
     }
 
     public  Spring(double k)
     {
-        this.k = k;
+        setK(k);
     }
 
     public double getK()
@@ -58,7 +58,6 @@ public class Spring
         return coordinates;
 
     }
-
     public double[] move(double t0, double t1, double dt, double x0, double v0)
     {
         int size = (int)((t1-t0)/dt);
@@ -75,7 +74,6 @@ public class Spring
 
         return coordinates;
     }
-
     public double[] move(double t0, double t1, double dt, double x0, double v0, double m)
     {
         int size = (int)((t1-t0)/dt);
@@ -92,5 +90,16 @@ public class Spring
 
         return coordinates;
     }
+    public Spring inSeries(Spring that)
+    {
+        double res = this.getK() + that.getK();
+        return new Spring(res);
+    }
+    public Spring inParallel(Spring that)
+    {
+        double res = 1.0 / (1.0 / this.getK() + 1.0 / that.getK());
+        return  new Spring(res);
+    }
+
 
 }
