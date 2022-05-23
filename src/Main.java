@@ -12,8 +12,11 @@ public class Main {
 //            System.out.println(t[i]);
 //        }
 
-//        System.out.println(SpringArray.equivalentSpring("[[]{[][]}]").getK());
+        System.out.println(SpringArray.equivalentSpring("[[]{[][]}]").getK());
         System.out.println(SpringArray.equivalentSpring("[[]{[][]}]", new Spring[] {new Spring(1),new Spring(2),new Spring(3)}).getK());
+        int[] bites = {1,0,1,0,0,1,0,0,1};
+        Converter c = new Converter();
+        c.convert(bites);
 
     }
 }
